@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Teste de galeria</title>
+        <link rel="stylesheet" href="css/gallery.min.css" />
+        <style type="text/css">
+
+        	body {
+        		background-color: rgba(228, 223, 223, 1);
+        	}
+
+        </style>
+    </head>
+    <body>
+
+	    <div id="gallery">
+	    	<div><img src="images/thumbs/sdp/1.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/2.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/3.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/4.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/5.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/6.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/7.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/8.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/9.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/10.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/11.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/12.jpg" /></div>
+	    	<div><img src="images/thumbs/sdp/13.jpg" /></div>
+
+	    	<div><img src="images/thumbs/ser/1.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/2.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/3.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/4.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/5.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/6.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/7.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/8.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/9.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/10.jpg" /></div>
+	    	<div><img src="images/thumbs/ser/11.jpg" /></div>
+
+	    	<div><img src="images/thumbs/a2y/1.jpg" /></div>
+	    	<div><img src="images/thumbs/a2y/2.jpg" /></div>
+	    	<div><img src="images/thumbs/a2y/3.jpg" /></div>
+	    </div>
+
+	    <script type="text/javascript" src="js/jquery.1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/gallery.min.js"></script>
+        <script type="text/javascript">
+
+	        $(function() {
+
+	        	var imgs = [],
+	        		container = $('#gallery');
+
+	        	$.each(container.find('img'), function(i, val) {
+					imgs.push(val.src.replace('thumbs/', ''));
+				});
+
+        		gallery.init({
+        			'container': container,
+        			'images': imgs,
+        			'speed': 500,
+        			'maxWidth': 1280
+        		});
+
+	        });
+
+        </script>
+
+    </body>
+</html>
