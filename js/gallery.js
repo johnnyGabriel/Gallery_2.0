@@ -40,7 +40,7 @@ $(function() {
 			//preenche o container com o codigo das imagens
 			var html = '';
 
-			$.each(this.images, function(index, val) {
+			$.each(this.images, function() {
 				 
 				html +=  "<div>"+
 						 	"<div style='display: none' class='image'>"+
@@ -120,8 +120,6 @@ $(function() {
 			//posiciona todas as imagens
 			this.container.children().each(function(index, el) {
 
-				var elHeight = $(el).height();
-
 				//verifica a primeira execução para nao acrescentar o espaço de uma imagem no left da primeira imagem
 				if (index === 0)
 				    imageLeft += gallery.margin;
@@ -164,12 +162,11 @@ $(function() {
 				}				
 
 				//verifica no array statusLoad se a imagem ja foi carregada anteriormente
-				var status;
-				if(status=gallery.statusLoad[order[i]])
-					if(status === true) {
-						rec(++i);
-						return false;
-					}
+				var status = gallery.statusLoad[order[i]];
+				if(status) {
+					rec(++i);
+					return false;
+				}
 
 				//realiza a requisição da imagem no servidor
 				$.get(currentImage)
@@ -215,7 +212,7 @@ $(function() {
 			//chama o método de carregamento das imagens
 			this.load(pos);	
 
-			if(this.positions.length == 0) {
+			if(this.positions.length === 0) {
 
 				setTimeout(function() {
 					gallery.open(pos);
@@ -264,7 +261,11 @@ $(function() {
 			//define a direção como 'para frente'
 			var direction = 'forth';
 
+			//abre a imagem do index atual para começar a transição automatica
 			this.open(this.index);
+
+			//pára qualquer outra instancia anterior do setInterval
+			this.stop();
 
 			//define o timer que executara as trocas de tempos em tempos
 			gallery.interval = setInterval(function() {
@@ -295,6 +296,6 @@ $(function() {
 
 		}
 
-	}
+	};
 
 });
