@@ -13,6 +13,7 @@ $(function() {
 		margin: 20, //margin entre as imagens
 		speed: 'normal', //velocidade de animações e transições
 		container: null, //elemento container das imagens
+		loader: null,//caminho da imagem de loader
 		horizontalSpace: 0, //valor de raio da sobra de tela horizontal (usado para posicionar a imagem no centro)
 
 		init: function(options) {
@@ -35,6 +36,9 @@ $(function() {
 				if(typeof(options.images) != 'undefined')
 					this.images = options.images;
 
+				if(typeof(options.loader) != 'undefined')
+					this.loader = options.loader;
+
 			}
 
 			//preenche o container com o codigo das imagens
@@ -48,7 +52,7 @@ $(function() {
 						 	"</div>"+	
 						 	"<div class='loading'>"+
 							   "<div>"+
-									"<img src='images/loader.gif' />"+
+									"<img src='"+ gallery.loader +"' />"+
 								"</div>"+
 						 	"</div>"+				 		
 					 	"</div>";
