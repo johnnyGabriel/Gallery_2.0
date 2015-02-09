@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Teste de galeria</title>
-        <link rel="stylesheet" href="css/gallery.min.css" />
+        <link rel="stylesheet" href="css/gallery.css" />
         <style type="text/css">
 
         	body {
@@ -48,7 +48,7 @@
 	    </div>
 
 	    <script type="text/javascript" src="js/jquery.1.11.1.min.js"></script>
-        <script type="text/javascript" src="js/gallery.min.js"></script>
+        <script type="text/javascript" src="js/gallery.js"></script>
         <script type="text/javascript">
 
 	        $(function() {
@@ -66,7 +66,11 @@
         			'loader': 'images/loader.gif',
         			'speed': 300,
         			'maxWidth': 1280
-        		});   		
+        		});
+
+        		setTimeout(function() {
+        			gallery.open(0);
+        		}, 2000);
 
 	        });
 

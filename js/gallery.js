@@ -44,11 +44,11 @@ $(function() {
 			//preenche o container com o codigo das imagens
 			var html = '';
 
-			$.each(this.images, function() {
+			$.each(this.images, function(index) {
 				 
 				html +=  "<div>"+
 						 	"<div style='display: none' class='image'>"+
-						 		"<img />"+
+						 		"<img id='img-"+ index +"' />"+
 						 	"</div>"+	
 						 	"<div class='loading'>"+
 							   "<div>"+
@@ -71,6 +71,12 @@ $(function() {
 			//define um evento de resize de tela
 			$(window).resize(function() {
 				gallery.adjustScreen();
+			});
+
+			//define um evento de click nas imagens
+			$(this.container).find('.image').on('click', function(e) {
+				var id = (e.currentTarget.children[0].id).split('-')[1];
+				gallery.open(parseInt(id));
 			});
 			
 		},
